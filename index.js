@@ -72,7 +72,6 @@ function futureHolidaysOnly(holidays) {
       return false;
     }
   });
-  // console.log(result);
 
   return result;
 }
