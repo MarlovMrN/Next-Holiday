@@ -8,7 +8,7 @@ app.get("/", async (req, res) => {
   const holidays = await fetchHolidays("BR");
   if (holidays) {
     res.render("index.ejs", {
-      holidays: futureHolidaysOnly(holidays),
+      holiday: futureHolidaysOnly(holidays)[0],
     });
   } else {
     res.redirect("/500");
