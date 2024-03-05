@@ -45,7 +45,6 @@ async function fetchHolidays(countryAcronym) {
     },
   };
   try {
-    console.log(apiURL + apiEndpoint, options);
     const result = await axios.get(apiURL + apiEndpoint, options);
     return result.data.response.holidays;
   } catch (error) {
