@@ -2,8 +2,6 @@ import axios from "axios";
 import pkg from "geoip-lite";
 const { lookup } = pkg;
 
-import countryData from "./country-data.js";
-
 const apiKey = process.env.NEXTHOLIDAY_APIKEY;
 const apiURL = "https://calendarific.com/api/v2";
 const apiEndpoint = "/holidays";
@@ -46,24 +44,4 @@ export function futureHolidaysOnly(holidays) {
   });
 
   return result;
-}
-
-export function getCountryData(request) {
-  const countryFromEntry = getCountryEntry(request.query.country);
-  const countryFromIP = getCountryAcronymByRequest(request);
-  return countryFromEntry || countryFromIP || { acronym: "BR" };
-}
-
-export function getCountryEntry(countryAcronym) {
-  const country = countryData.find((element) => {
-    element.acronym === countryAcronym;
-  });
-  return country;
-}
-
-export function getCountryAcronymByRequest(req) {
-  const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
-  const lookupIP = lookup(ip);
-  const countryAcronym = lookupIP ? lookupIP.country : "";
-  return countryAcronym;
 }

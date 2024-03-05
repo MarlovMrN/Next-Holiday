@@ -1,3 +1,5 @@
+<h1>Brazil's Next Holiday is</h1>
+
 <% if(locals.holidays) {%> 
 
   <%holidays.forEach( (entry) => { %>
@@ -5,12 +7,7 @@
     <%= entry.description%>
     <%= entry.date.iso %>
     <%= entry.type %>
-    <%= entry.locations %>
-    <%= entry.states%>
     <hr>
   <%})%>
-
-  
-
   
 <% } %>
