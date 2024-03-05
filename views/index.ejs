@@ -1,0 +1,16 @@
+<% if(locals.holidays) {%> 
+
+  <%holidays.forEach( (entry) => { %>
+    <%= entry.name%>
+    <%= entry.description%>
+    <%= entry.date.iso %>
+    <%= entry.type %>
+    <%= entry.locations %>
+    <%= entry.states%>
+    <hr>
+  <%})%>
+
+  
+
+  
+<% } %>
